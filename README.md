@@ -16,4 +16,3 @@ Python files description:
 - fit_predict_models.py: responsible for training and predicting scripts for Sklearn based models;
 - heterogen_ensemble.py: responsible for creating dynamic selection approaches;
 - time_series_functions.py: scripts for persisting and load results, and compute performance metrics;
-- utils.py: utilities for loading the solar data and performing the grid-search of the single models;
