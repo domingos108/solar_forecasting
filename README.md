@@ -1,5 +1,6 @@
-# solar_forecasting
-the source code of the paper is named as: Solar Irradiance forecasting using dynamic ensemble selection
+# Solar Forecasting
+The source code of the paper is named as: Solar Irradiance forecasting using dynamic ensemble selection.
+Four data sets from Salvador, Fortaleza, Florianópolis and São Paulo are considered, which are disponible at: https://mapas.inmet.gov.br/ 
 
 # Usage
 General information:
