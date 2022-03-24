@@ -1,0 +1,45 @@
+[
+{
+    "name": "salvador_1",
+    "type_data": 1,
+    "path_data":"./data/INMET_NE_BA_A401_SALVADOR_01-01-2020_A_31-12-2020.csv",
+    "arima_path": "./arima_models/1-arima.txt",
+    "test_size": 951,
+    "val_size": 951,
+    "activate":1,
+    "horzion": 1,
+    "hour_min_max":["0900 UTC", "2100 UTC"]
+},
+{
+    "name": "fortaleza_1",
+    "type_data": 2,
+    "path_data":"./data/INMET_NE_CE_A305_FORTALEZA_01-01-2020_A_31-12-2020.csv",
+    "arima_path": "./arima_models/2-arima.txt",
+    "test_size": 951,
+    "val_size": 951,
+    "activate":1,
+    "horzion": 1,
+    "hour_min_max":["0900 UTC", "2100 UTC"]
+},
+{
+    "name": "saopaulo_1",
+    "type_data": 4,
+    "path_data":"./data/INMET_SE_SP_A701_SAO PAULO - MIRANTE_01-01-2020_A_31-12-2020.csv",
+      "arima_path": "./arima_models/4-arima.txt",
+    "test_size": 951,
+    "val_size": 951,
+    "activate":1,
+    "horzion": 1,
+    "hour_min_max":["0900 UTC", "2100 UTC"]
+},
+{
+    "name": "florianopolis_1",
+    "type_data": 5,
+    "path_data":"./data/INMET_S_SC_A806_FLORIANOPOLIS_01-01-2020_A_31-12-2020.csv",
+    "arima_path": "./arima_models/5-arima.txt",
+    "test_size": 951,
+    "val_size": 951,
+    "activate":1,
+    "horzion": 1,
+    "hour_min_max":["0900 UTC", "2100 UTC"]
+}]
