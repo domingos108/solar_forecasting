@@ -1,10 +1,10 @@
-import pandas as pd
-import numpy as np
 import pickle as pkl
 import datetime
-#from statsmodels.tsa.stattools import acf, pacf
-import matplotlib.pyplot as plt
 from collections import deque
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 class result_options:
@@ -184,3 +184,27 @@ def predict_sklearn_model(ts, model):
     x = ts.drop(columns=['actual'], axis=1)
 
     return model.predict(x.values)
+
+def utc_hour_to_int(x):
+    return int(x.split(' ')[0])
+
+def load_data_solar_hours(path, min_max, use_log, save_cv):
+    df_total = pd.read_csv(path, sep=';',decimal=',', encoding='utf8')
+    df_total['RADIACAO GLOBAL (Kj/m)'] = df_total['RADIACAO GLOBAL (Kj/m)'].fillna(0)
+    df_total['Data'] = pd.to_datetime(df_total['Data'] +' '+ df_total['Hora UTC'], format='%d/%m/%Y %H%M UTC')
+    
+    min_hour =  utc_hour_to_int(min_max[0])
+    max_hour = utc_hour_to_int(min_max[1])
+    cond = df_total['Hora UTC'].apply(lambda x: utc_hour_to_int(x)>=min_hour and utc_hour_to_int(x)<=max_hour)
+    df_total = df_total[cond][['Data', 'RADIACAO GLOBAL (Kj/m)']]
+    
+    df_total.rename(columns = {'RADIACAO GLOBAL (Kj/m)': 'actual'}, inplace=True)
+    df_total.set_index('Data', inplace=True)
+
+    if use_log:
+        df_total['actual'] = np.log(df_total['actual']+1)
+
+    if save_cv:
+        df_total.to_csv(path.replace('.csv', '_solar.csv')) 
+
+    return df_total

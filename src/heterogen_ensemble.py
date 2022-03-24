@@ -3,7 +3,7 @@ import glob
 import pandas as pd
 import numpy as np
 
-import time_series_functions as tsf
+import src.time_series_functions as tsf
 
 
 def get_models_path(save_path, type_data, models_list, execs):
